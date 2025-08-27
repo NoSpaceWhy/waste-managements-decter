@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Waste management detecter</title>
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <h1>Waste management detecter</h1>
-</body>
+    <p>
+      This project aims to develop a system for detecting and managing waste
+      effectively.
+    </p>
+    <hr />
+    <video id="video" width="640" height="480" autoplay></video>
+
+    <script>
+      // Ask for camera access
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+          let video = document.getElementById("video");
+          video.srcObject = stream;
+        })
+        .catch(function (err) {
+          console.error("Error accessing camera: " + err);
+        });
+    </script>
+    <hr />
+    <h2>Features</h2>
+    <ul>
+      <li>Real-time waste detection</li>
+      <li>Automated sorting</li>
+      <li>Data analytics for waste management</li>
+    </ul>
+  </body>
 </html>

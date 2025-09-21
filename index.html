@@ -16,7 +16,7 @@
       }
     </style>
   </head>
-  <body>
+    <body>
     <h1>Waste Detection AI</h1>
     <video id="video" autoplay></video>
     <div id="result">Detecting...</div>
@@ -39,17 +39,77 @@
           if (prediction.length > 0) {
             let item = prediction[0].className.toLowerCase();
 
-            // Simple rules (replace with real waste categories)
-            let advice = "Unknown";
-            if (item.includes("bottle") || item.includes("plastic"))
-              advice = "Recycle Bin ♻️";
-            else if (item.includes("banana") || item.includes("apple"))
-              advice = "Compost Bin 🌱";
-            else if (item.includes("metal") || item.includes("can"))
-              advice = "Recycle Bin (Metal) 🥫";
-            else if (item.includes("paper")) advice = "Paper Recycling 📄";
+            // Default
+            let category = "Unknown ❓";
 
-            resultDiv.innerHTML = `${prediction[0].className} → ${advice}`;
+            // 1. Biodegradable / Wet Waste
+            if (
+              item.includes("banana") ||
+              item.includes("apple") ||
+              item.includes("food") ||
+              item.includes("vegetable") ||
+              item.includes("fruit")
+            ) {
+              category = "Biodegradable / Wet Waste 🌱 (Compost)";
+            }
+
+            // 2. Dry Waste / Recyclable
+            else if (
+              item.includes("bottle") ||
+              item.includes("plastic") ||
+              item.includes("paper") ||
+              item.includes("cardboard") ||
+              item.includes("metal") ||
+              item.includes("can") ||
+              item.includes("glass")
+            ) {
+              category = "Dry Waste / Recyclable ♻️";
+            }
+
+            // 3. Hazardous Waste
+            else if (
+              item.includes("battery") ||
+              item.includes("paint") ||
+              item.includes("chemical") ||
+              item.includes("pesticide")
+            ) {
+              category = "Hazardous Waste ☣️";
+            }
+
+            // 4. Biomedical / Sanitary Waste
+            else if (
+              item.includes("mask") ||
+              item.includes("diaper") ||
+              item.includes("sanitary") ||
+              item.includes("bandage") ||
+              item.includes("syringe")
+            ) {
+              category = "Biomedical / Sanitary Waste 🏥";
+            }
+
+            // 5. E-Waste
+            else if (
+              item.includes("phone") ||
+              item.includes("charger") ||
+              item.includes("computer") ||
+              item.includes("tv") ||
+              item.includes("laptop")
+            ) {
+              category = "E-Waste 💻";
+            }
+
+            // 6. Construction & Demolition Waste
+            else if (
+              item.includes("brick") ||
+              item.includes("cement") ||
+              item.includes("tile") ||
+              item.includes("wood") ||
+              item.includes("debris")
+            ) {
+              category = "Construction & Demolition Waste 🏗️";
+            }
+
+            resultDiv.innerHTML = `${prediction[0].className} → ${category}`;
           }
         }, 2000);
       }

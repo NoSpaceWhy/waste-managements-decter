@@ -5,22 +5,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <!-- Example: a pre-trained MobileNet (image classifier) -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
-    <style>
-      video {
-        transform: scaleX(-1);
-        width: 480px;
-      }
-      #result {
-        font-size: 20px;
-        margin-top: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="index.css">
   </head>
     <body>
     <h1>Waste Detection AI</h1>
     <video id="video" autoplay></video>
     <div id="result">Detecting...</div>
 
+    
     <script>
       let video = document.getElementById("video");
       let resultDiv = document.getElementById("result");

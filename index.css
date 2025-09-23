@@ -1,0 +1,35 @@
+/* Center everything on the page */
+body {
+    display: flex;
+    font-family: "Arial", sans-serif;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(41, 174, 192);
+}
+
+#result {
+    position: absolute;
+    top: 100px; /* Adjusted to create space between the title and result */
+    z-index: 10;
+    font-size: 20px;
+    margin-top: 10px;
+      
+}
+
+#camera {
+    position: relative;
+    z-index: 1;
+    width: 640px; /* Adjusted width */
+    height: 480px; /* Adjusted height */
+}
+
+video {
+    transform: scaleX(-1);
+    width: 480px;
+}
+
+h1 {
+    margin-bottom: auto;
+}

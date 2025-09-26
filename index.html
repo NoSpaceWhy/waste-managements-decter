@@ -52,6 +52,7 @@
                 item.includes("bottle") ||
                 item.includes("plastic") ||
                 item.includes("paper") ||
+                item.includes("carton") ||
                 item.includes("cardboard") ||
                 item.includes("metal") ||
                 item.includes("can") ||
@@ -84,10 +85,14 @@
               // 5. E-Waste
               else if (
                 item.includes("phone") ||
+                item.includes("projector") ||
+                item.includes("hair dryer") ||
                 item.includes("charger") ||
                 item.includes("computer") ||
                 item.includes("tv") ||
-                item.includes("laptop")
+                item.includes("laptop") ||
+                item.includes("atm")
+
               ) {
                 category = "E-Waste 💻";
               }

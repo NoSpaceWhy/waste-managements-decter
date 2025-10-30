@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <!-- Example: a pre-trained MobileNet (image classifier) -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <!-- the main project -->
@@ -15,122 +15,26 @@
       <div id="result">Detecting...</div>
 
       <!-- this is the ai script -->
-      <script>
-        let video = document.getElementById("video");
-        let resultDiv = document.getElementById("result");
-
-        // Start camera
-        navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-          video.srcObject = stream;
-        });
-
-        // Load AI model
-        async function startAI() {
-          const model = await mobilenet.load(); // Replace with custom waste model
-
-          setInterval(async () => {
-            const prediction = await model.classify(video);
-            if (prediction.length > 0) {
-              let item = prediction[0].className.toLowerCase();
-
-              // Default
-              let category = "Unknown ❓";
-
-              // 1. Biodegradable / Wet Waste
-              if (
-                item.includes("banana") ||
-                item.includes("apple") ||
-                item.includes("food") ||
-                item.includes("vegetable") ||
-                item.includes("fruit")
-              ) {
-                category = "Biodegradable / Wet Waste 🌱 (Compost)";
-              }
-
-              // 2. Dry Waste / Recyclable
-              else if (
-                item.includes("bottle") ||
-                item.includes("plastic") ||
-                item.includes("paper") ||
-                item.includes("carton") ||
-                item.includes("cardboard") ||
-                item.includes("metal") ||
-                item.includes("can") ||
-                item.includes("glass")
-              ) {
-                category = "Dry Waste / Recyclable ♻️";
-              }
-
-              // 3. Hazardous Waste
-              else if (
-                item.includes("battery") ||
-                item.includes("paint") ||
-                item.includes("chemical") ||
-                item.includes("pesticide")
-              ) {
-                category = "Hazardous Waste ☣️";
-              }
-
-              // 4. Biomedical / Sanitary Waste
-              else if (
-                item.includes("mask") ||
-                item.includes("diaper") ||
-                item.includes("sanitary") ||
-                item.includes("bandage") ||
-                item.includes("syringe")
-              ) {
-                category = "Biomedical / Sanitary Waste 🏥";
-              }
-
-              // 5. E-Waste
-              else if (
-                item.includes("phone") ||
-                item.includes("projector") ||
-                item.includes("hair dryer") ||
-                item.includes("charger") ||
-                item.includes("computer") ||
-                item.includes("tv") ||
-                item.includes("laptop") ||
-                item.includes("atm")
-
-              ) {
-                category = "E-Waste 💻";
-              }
-
-              // 6. Construction & Demolition Waste
-              else if (
-                item.includes("brick") ||
-                item.includes("cement") ||
-                item.includes("tile") ||
-                item.includes("wood") ||
-                item.includes("debris")
-              ) {
-                category = "Construction & Demolition Waste 🏗️";
-              }
-
-              resultDiv.innerHTML = `${prediction[0].className} → ${category}`;
-            }
-          }, 2000);
-        }
-
-        startAI();
+      <script src="AI.js">
+        // don't touch this if you don't know what this does
       </script>
     </main>
 
     <!--  about project section -->
-<article>
-  <h2>About</h2>
-  <pre>
+    <article>
+      <h2>About</h2>
+      <pre>
 This project is based on the topic "Waste Management"
 This site requires camera permission. It detects an object and tells you which kind of waste it is.
 this was created with in 6 hours and is fairly accurate.
 The AI was made in Javascript and the libraries used is open source which is in github.
-  </pre>
-</article>
+  </pre
+      >
+    </article>
 
-<footer>
-This project was made by Ashray (Most of the programming) and Mahadev (Most of the design stuff)
-</footer>
-
-</body>
+    <footer>
+      This project was made by Ashray (Most of the programming) and Mahadev
+      (Most of the design stuff)
+    </footer>
+  </body>
 </html>

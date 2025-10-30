@@ -88,11 +88,8 @@ async function startAI() {
       ) {
         category = "Construction & Demolition Waste 🏗️";
       }
-      
-    //   resultDiv.innerHTML = `${prediction[0].className} → ${category}`;
-// this is the display thing
-      resultDiv.innerHTML = `${category}`;
 
+      resultDiv.innerHTML = `${prediction[0].className} → ${category}`;
     }
   }, 2000);
 }

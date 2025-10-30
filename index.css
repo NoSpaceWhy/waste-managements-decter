@@ -4,12 +4,15 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    background-color: #fbf1c7;
+    background-color: #000;
+    color: #fff;
 }
 
 article{
-    background-color: #ebdbb2;
+    background-color: #111;
+
 }
+
 video {
     transform: scaleX(-1);
     width: 550px;
@@ -47,7 +50,7 @@ footer {
     padding: 40px;
     width: 94%;
     text-align: center;
-    background-color: #d5c4a1;
+    background-color: #fff;
     font-size: 30px;
 }
 h3{

@@ -18,6 +18,8 @@ async function startAI() {
       // Default
       let category = "Unknown ❓";
 
+      let element = "None";
+
       // 1. Biodegradable / Wet Waste
       if (
         item.includes("banana") ||
@@ -27,6 +29,7 @@ async function startAI() {
         item.includes("fruit")
       ) {
         category = "Biodegradable / Wet Waste 🌱 (Compost)";
+        element = "Carbon(C), Oxygen(O), Hydrogen(H)";
       }
 
       // 2. Dry Waste / Recyclable
@@ -41,6 +44,9 @@ async function startAI() {
         item.includes("glass")
       ) {
         category = "Dry Waste / Recyclable ♻️";
+
+        element =
+          "Carbon(C), Oxygen(O), Hydrogen(H), Silicon(Si), Aluminum(Al), Iron(Fe)";
       }
 
       // 3. Hazardous Waste
@@ -51,6 +57,9 @@ async function startAI() {
         item.includes("pesticide")
       ) {
         category = "Hazardous Waste ☣️";
+
+        element =
+          "Lead(Pb), Mercury(Hg), Cadmium(Cd), Chromium(Cr),Arsenic(As) ";
       }
 
       // 4. Biomedical / Sanitary Waste
@@ -62,6 +71,9 @@ async function startAI() {
         item.includes("syringe")
       ) {
         category = "Biomedical / Sanitary Waste 🏥";
+
+        element =
+          "Carbon(C), Oxygen(O), Hydrogen(H), Nitrogen(N) Sulphur(S), Phosphorus(P)";
       }
 
       // 5. E-Waste
@@ -76,6 +88,8 @@ async function startAI() {
         item.includes("atm")
       ) {
         category = "E-Waste 💻";
+
+        element = "Copper(Cu), Gold(Au), Silver(Ag), Aluminum(Al), Iron(Fe)";
       }
 
       // 6. Construction & Demolition Waste
@@ -87,10 +101,12 @@ async function startAI() {
         item.includes("debris")
       ) {
         category = "Construction & Demolition Waste 🏗️";
+
+        element = "Carbon(C), Oxygen(O), Silicon(Si), Aluminum(Al), Iron(Fe)";
       }
       // resultDiv.innerHTML = `${prediction[0].className} → ${category}`;
 
-      resultDiv.innerHTML = `${category}`;
+      resultDiv.innerHTML = `${category}, May contain ${element} `;
     }
   }, 2000);
 }
